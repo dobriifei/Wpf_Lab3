@@ -110,19 +110,23 @@ namespace Wpf_Lab3
             }
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-           saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt| Все файлы(*.*)|*.* ";
-            if (saveFileDialog.ShowDialog()== true)
-            {
-                File.WriteAllText(saveFileDialog.FileName, textBox.Text );
-            }
-        }
+         
+      
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void CloseExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void MenuItem_Click_1(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt| Все файлы(*.*)|*.* ";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                File.WriteAllText(saveFileDialog.FileName, textBox.Text);
+            }
+
         }
     }
 }
