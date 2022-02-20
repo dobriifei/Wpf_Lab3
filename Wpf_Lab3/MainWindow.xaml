@@ -13,7 +13,6 @@
     </Window.CommandBindings>
     
     <Grid>
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -36,6 +35,7 @@
                           Width="200" 
                           SelectionChanged="ComboBox_SelectionChanged_1"
                           ItemsSource="{StaticResource fonts}"
+						  Style="{DynamicResource ComboboxStyle}"
                           />
                 <ComboBox 
                     Margin="5" 
@@ -44,6 +44,7 @@
                     Width="50" 
                     SelectionChanged="ComboBox_SelectionChanged"
                     ItemsSource="{StaticResource sizes}"
+					Style="{DynamicResource ComboboxStyle}"
                     />
 
 
@@ -66,12 +67,14 @@
                 <StackPanel VerticalAlignment="Center">
                     <RadioButton Content="Черный" IsChecked="True" Checked="RadioButton_Checked"/>
                     <RadioButton Content="Красный" Checked="RadioButton_Checked_1" />
-                    
-
                 </StackPanel>
+				<ComboBox Name="themes" Width="150" SelectedIndex="0" Margin="5" SelectionChanged="themes_SelectionChanged" Style="{DynamicResource ComboboxStyle}">
+					<TextBlock Text="Светлая"/>
+					<TextBlock Text="Темная"/>
+				</ComboBox>	
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="16" FontFamily="Arial" TextWrapping="Wrap"/>
+        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="16" FontFamily="Arial" TextWrapping="Wrap" TextChanged="textBox_TextChanged"/>
         
     </Grid>
 </Window>
